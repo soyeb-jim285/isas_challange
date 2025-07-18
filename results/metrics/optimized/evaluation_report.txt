@@ -1,0 +1,21 @@
+=== ISAS LSTM Model Evaluation Report ===
+
+OVERALL PERFORMANCE:
+Accuracy: 0.5354
+F1 Score (Weighted): 0.5371
+F1 Score (Macro): 0.5309
+F1 Score (Micro): 0.5354
+Precision (Weighted): 0.5469
+Recall (Weighted): 0.5354
+
+PER-PARTICIPANT PERFORMANCE (LOSO CV):
+Participant 1: Accuracy=0.6286, F1=0.5853, Samples=2703
+Participant 2: Accuracy=0.4310, F1=0.3695, Samples=2636
+Participant 3: Accuracy=0.4839, F1=0.4869, Samples=3941
+Participant 5: Accuracy=0.6206, F1=0.5821, Samples=2657
+
+Average across participants:
+Average Accuracy: 0.5410
+Average F1 Score: 0.5059
+Std Accuracy: 0.0857
+Std F1 Score: 0.0881

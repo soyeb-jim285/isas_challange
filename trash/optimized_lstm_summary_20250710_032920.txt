@@ -1,0 +1,26 @@
+=== optimized_lstm Prediction Summary ===
+Generated: 2025-07-10 03:29:22
+
+Total Predictions: 4365
+Unique Actions: 8
+
+Action Distribution:
+  Using phone: 1322 (30.3%)
+  Biting: 802 (18.4%)
+  Eating snacks: 742 (17.0%)
+  Walking: 707 (16.2%)
+  Throwing things: 312 (7.1%)
+  Attacking: 217 (5.0%)
+  Sitting quietly: 154 (3.5%)
+  Head banging: 109 (2.5%)
+
+Confidence Statistics:
+  Mean Confidence: 0.810
+  Min Confidence: 0.303
+  Max Confidence: 1.000
+  Std Confidence: 0.209
+
+Frame Coverage:
+  First Frame: 45
+  Last Frame: 117873
+  Frame Range: 117829
