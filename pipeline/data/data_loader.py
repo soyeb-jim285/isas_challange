@@ -17,7 +17,7 @@ class KeypointDataLoader:
     
     def __init__(self, data_dir="Train Data"):
         self.data_dir = Path(data_dir)
-        self.participants = [1, 2, 3, 5]
+        self.participants = [1, 2, 3, 4, 5]
         self.combined_data = None
         
     def load_training_data(self):

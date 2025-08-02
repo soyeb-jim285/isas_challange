@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{dong2020prediction}
+Lianghong Dong, Dongjie Fang, Xin Wang, Wei Wei, Rafal Scherer, and Marcin
+  Wo{\'z}niak.
+\newblock Prediction of streamflow based on dynamic sliding window lstm.
+\newblock {\em Water}, 12:6--11, 2020.
+
+\bibitem{hochreiter1997long}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural Computation}, 9(8):1735--1740, 1997.
+
+\bibitem{wam2023}
+{Japan Welfare and Medical Service Agency}.
+\newblock Survey on securing human resources for disability welfare services,
+  etc. in 2023, 2023.
+
+\bibitem{martin2023time}
+Kilian Mart{\'i}n-Chinea, Julio Ortega, Juan~Francisco G{\'o}mez-Gonz{\'a}lez,
+  Ernesto Pereda, Javier Toledo, and Leopoldo Acosta.
+\newblock Effect of time windows in lstm networks for eeg-based bcis.
+\newblock {\em Cognitive Neurodynamics}, 17:385--398, 2023.
+
+\bibitem{morais2019learning}
+Romero Morais, Vuong Le, Truyen Tran, Budhaditya Saha, Moussa Mansour, and
+  Svetha Venkatesh.
+\newblock Learning regularity in skeleton trajectories for anomaly detection in
+  videos.
+\newblock In {\em IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 11988--11996, 2019.
+
+\bibitem{yan2018spatial}
+Sijie Yan, Yuanjun Xiong, and Dahua Lin.
+\newblock Spatial temporal graph convolutional networks for skeleton-based
+  action recognition.
+\newblock In {\em Proceedings of the 32nd AAAI Conference on Artificial
+  Intelligence (AAAI-18)}, pages 6--7, 2018.
+
+\end{thebibliography}

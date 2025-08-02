@@ -29,7 +29,7 @@ class ISASLSTMModel:
     
     def __init__(self):
         self.data_dir = Path("Train Data")
-        self.participants = [1, 2, 3, 5]
+        self.participants = [1, 2, 3, 4, 5]
         
         # ABC paper hyperparameters
         self.lstm_units = 64

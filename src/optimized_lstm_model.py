@@ -32,7 +32,7 @@ class OptimizedISASLSTM:
     
     def __init__(self):
         self.data_dir = Path("Train Data")
-        self.participants = [1, 2, 3, 5]
+        self.participants = [1, 2, 3, 4, 5]
         
         # Parameter ranges for optimization (inspired by ABC paper)
         self.param_ranges = {
@@ -292,7 +292,7 @@ class OptimizedISASLSTM:
         
         step_size = max(1, int(window_size * (1 - overlap_rate)))
         
-        for participant in self.participants:
+        for participant in np.unique(participant_ids):
             participant_mask = participant_ids == participant
             participant_features = features[participant_mask]
             participant_labels = labels[participant_mask]
@@ -464,7 +464,7 @@ class OptimizedISASLSTM:
         all_predictions = []
         all_true_labels = []
         
-        for test_participant in self.participants:
+        for test_participant in np.unique(participants):
             print(f"\nFold: Testing on participant {test_participant}")
             
             train_mask = participants != test_participant
