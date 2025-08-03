@@ -1,4 +1,5 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass{iopconfser}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
@@ -9,7 +10,6 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{array}
-\usepackage[margin=2.5cm]{geometry}
 \usepackage{natbib}
 \usepackage{url}
 \usepackage{algorithm}
@@ -21,24 +21,24 @@
 \usetikzlibrary{shapes,arrows,positioning,fit,backgrounds}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
 
-\title{Enhanced LSTM-Based Temporal Parameter Optimization for Abnormal Activity Recognition in Developmental Disability Support}
-
-\author{Soyeb Parvez Jim$^1$, Md Ahasanul Kabir Rifat$^2$, Md Atiqur Rahman Ahad$^3$, Dr. Tahera Hossain$^4$\\
-$^1$soyebpervez-2020515843@eee.du.ac.bd\\
-$^2$mdahasanulkabir-2020915858@eee.du.ac.bd\\
-$^3$atiqahad@gmail.com\\
-$^4$Taheramoni@gmail.com\\
-}
-
 \begin{document}
 
-\maketitle
+\title{Enhanced LSTM-Based Temporal Parameter Optimization for Abnormal Activity Recognition in Developmental Disability Support}
+
+\author{Soyeb Parvez Jim$^{1}$, Md Ahasanul Kabir Rifat$^{1}$, Md Atiqur Rahman Ahad$^{2}$, Tahera Hossain$^{3}$}
+
+\affil{$^1$Department of Electrical and Electronic Engineering, University of Dhaka, Dhaka, Bangladesh}
+\affil{$^2$Department of Computer Science and Digital Technology, University of East London, London, United Kingdom}
+\affil{$^3$Graduate School of Engineering, Information and Communication Engineering, Nagoya University, Nagoya, Japan}
+
+\email{soyebpervez-2020515843@eee.du.ac.bd}
+\email{mdahasanulkabir-2020915858@eee.du.ac.bd}
+\email{atiqahad@gmail.com}
+\email{Taheramoni@gmail.com}
 
 \begin{abstract}
 Current care centers often lack sophisticated equipment for continuous monitoring of individuals with developmental disabilities, creating risks of unnoticed behavioral changes. This paper presents an enhanced pose-based Long Short-Term Memory (LSTM) model for abnormal activity detection in caregiving scenarios. We extract 18 comprehensive pose features including motion dynamics (hand/foot speeds and accelerations), spatial relationships (joint angles and limb spans), and displacement patterns (head, body center, and eye movements) from skeleton keypoints, with temporal smoothing applied to 30 fps YOLOv7 pose estimation data. Through Leave-One-Subject-Out (LOSO) cross-validation on the ISAS 2025 dataset, we compare baseline and optimized LSTM models across 8 activities: 4 normal (walking, sitting, using phone, eating) and 4 abnormal (attacking, head banging, throwing things, biting nails). The optimized model, with temporal parameter tuning (window size=90 frames, LSTM units=64), shows mixed but promising results: significant improvement for 'throwing things' (+14.33 percentage points, from 55.35\% to 69.68\% F1-score), modest gains for 'head banging' (+0.96 percentage points), but decreased performance for 'biting nails' (-2.55 percentage points). Overall performance demonstrates modest improvements with accuracy increasing from 58.79\% to 59.69\% (+0.9 percentage points) and weighted F1-score from 58.02\% to 58.76\% (+0.74 percentage points). While the macro F1-score improvement (+1.51 percentage points) and enhanced consistency across participants (reduced standard deviation) are encouraging, the overall performance levels indicate substantial room for improvement before clinical deployment. The enhanced architecture with bidirectional LSTM layers, dropout regularization, and batch normalization shows better sensitivity to abnormal behaviors compared to baseline approaches, contributing foundational insights for automated behavioral monitoring systems in developmental disability care settings.
 \end{abstract}
-
-\textbf{Keywords:} abnormal activity recognition, LSTM, pose estimation, temporal optimization, developmental disabilities, activity recognition
 
 \section{Introduction}
 
@@ -224,11 +224,11 @@ Table \ref{tab:performance_comparison} presents the performance comparison betwe
 \toprule
 \textbf{Metric} & \textbf{Baseline} & \textbf{Optimized} \\
 \midrule
-Overall Accuracy & 0.5879 & \textcolor{improvement}{\textbf{0.5969}} \\
-Weighted F1-Score & 0.5802 & \textcolor{improvement}{\textbf{0.5876}} \\
-Macro F1-Score & 0.5941 & \textcolor{improvement}{\textbf{0.6092}} \\
-Weighted Precision & 0.5866 & \textcolor{improvement}{\textbf{0.5956}} \\
-Weighted Recall & 0.5879 & \textcolor{improvement}{\textbf{0.5969}} \\
+Overall Accuracy & 0.5879 & \textbf{0.5969} \\
+Weighted F1-Score & 0.5802 & \textbf{0.5876} \\
+Macro F1-Score & 0.5941 & \textbf{0.6092} \\
+Weighted Precision & 0.5866 & \textbf{0.5956} \\
+Weighted Recall & 0.5879 & \textbf{0.5969} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -313,7 +313,7 @@ Batch Size & 32 & \textbf{32} \\
 \end{tabular}
 \end{table}
 
-The optimization process identified a \textbf{3x increase in window size} (30 → 90 frames) as the most critical improvement, enabling better capture of temporal patterns in both normal and unusual activities.
+The optimization process identified a three-fold increase in window size (30 → 90 frames) as the most critical improvement, enabling better capture of temporal patterns in both normal and unusual activities.
 
 \subsection{Confusion Matrix Analysis}
 

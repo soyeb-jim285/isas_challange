@@ -3,6 +3,11 @@
 ## 📄 Paper Title
 **Enhanced LSTM-Based Temporal Parameter Optimization for Abnormal Activity Recognition in Developmental Disability Support**
 
+## 👥 Authors
+- **Soyeb Pervez Jim** (soyeb.jim@gmail.com)
+- **Md Ahasanul Kabir Rifat** (kabir.rifat@gmail.com)  
+- **Abal Sir** (abal.sir@institution.edu)
+
 ## 🎯 Research Achievements
 
 ### Performance Improvements
