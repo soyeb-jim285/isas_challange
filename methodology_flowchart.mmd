@@ -1,0 +1,40 @@
+flowchart TB
+    %% Main Processing Pipeline
+    A[Raw Video Input<br/>30 fps, 5 participants<br/>8 activities<br/>28,757 frames] --> B[YOLOv7 Pose<br/>Estimation<br/>17 keypoints<br/>per frame]
+    B --> C[Data Cleaning<br/>Remove NaN values<br/>Label standardization<br/>Temporal ordering]
+    C --> D[Enhanced Feature<br/>Extraction<br/>14→18 features<br/>Angle calculations]
+    D --> E[Temporal Smoothing<br/>Savitzky-Golay<br/>5-frame window<br/>Noise reduction]
+    
+    %% Sequence Creation and Cross-Validation
+    E --> F[Sequence Creation<br/>Sliding windows<br/>Baseline: 30 frames<br/>Optimized: 90 frames]
+    F --> G{LOSO Cross-<br/>Validation<br/>5 folds}
+    
+    %% Training and Testing Split
+    G --> H[Training Set<br/>4 participants<br/>Feature scaling<br/>Class weighting]
+    G --> I[Test Set<br/>1 participant<br/>Same scaling<br/>applied]
+    
+    %% Model Training Branch
+    H --> J[Baseline LSTM<br/>Units: 64<br/>Window: 30<br/>LR: 0.001]
+    H --> K[Optimized LSTM<br/>Units: 128<br/>Window: 90<br/>LR: 0.0005]
+    J --> L[Model Training<br/>Adam optimizer<br/>Early stopping<br/>Dropout: 30%]
+    K --> L
+    
+    %% Evaluation Branch
+    I --> M[Model Evaluation<br/>Accuracy, F1-score<br/>Confusion matrix<br/>Per-class metrics]
+    
+    %% Final Results
+    L --> N[Final Results<br/>Performance comparison<br/>Statistical analysis<br/>Visualizations]
+    M --> N
+    
+    %% Styling
+    classDef inputStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef processStyle fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px,color:#000
+    classDef decisionStyle fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000
+    classDef modelStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    classDef resultStyle fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000
+    
+    class A inputStyle
+    class B,C,D,E,F,H,I,L,M processStyle
+    class G decisionStyle
+    class J,K modelStyle
+    class N resultStyle

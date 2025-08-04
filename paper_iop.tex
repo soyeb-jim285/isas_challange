@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -18,9 +19,15 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds}
+\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds,calc,matrix,chains,scopes}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
-
+% Define custom colors for professional research paper appearance
+\definecolor{inputblue}{RGB}{41, 98, 255}
+\definecolor{processgreen}{RGB}{0, 150, 136}
+\definecolor{decisionorange}{RGB}{255, 152, 0}
+\definecolor{modelpurple}{RGB}{103, 58, 183}
+\definecolor{resultred}{RGB}{244, 67, 54}
+\definecolor{arrowgray}{RGB}{66, 66, 66}
 \begin{document}
 
 \title{Enhanced LSTM-Based Temporal Parameter Optimization for Abnormal Activity Recognition in Developmental Disability Support}
@@ -74,67 +81,74 @@ Figure \ref{fig:methodology_flowchart} presents the overall methodology flowchar
 
 \begin{figure}[H]
 \centering
-\resizebox{0.8\textwidth}{!}{%
+\resizebox{0.9\textwidth}{!}{%
 \begin{tikzpicture}[
-    node distance=1.2cm and 2.2cm,
-    block/.style={rectangle, draw, fill=blue!20, text width=2.8cm, text centered, rounded corners, minimum height=1.4cm, font=\scriptsize},
-    decision/.style={diamond, draw, fill=yellow!20, text width=2.8cm, text centered, minimum height=1.8cm, font=\scriptsize},
-    arrow/.style={thick,->,>=stealth}
+    node distance=1.5cm and 2.2cm,
+
+    
+    % Professional node styles with harmonious color scheme
+    input/.style={rectangle, draw=inputblue, fill=inputblue!15, text width=2.2cm, text centered, rounded corners=3pt, minimum height=1.3cm, thick},
+    process/.style={rectangle, draw=processgreen, fill=processgreen!15, text width=2.5cm, text centered, rounded corners=3pt, minimum height=1.3cm, thick},
+    decision/.style={diamond, draw=decisionorange, fill=decisionorange!15, text width=1.8cm, text centered, minimum height=1.4cm, thick},
+    model/.style={rectangle, draw=modelpurple, fill=modelpurple!15, text width=2.0cm, text centered, rounded corners=3pt, minimum height=1.2cm, thick},
+    result/.style={rectangle, draw=resultred, fill=resultred!15, text width=2.2cm, text centered, rounded corners=3pt, minimum height=1.3cm, thick},
+    arrow/.style={->, thick, color=arrowgray}
 ]
 
-% Input layer
-\node [block] (input) {Video Input\\(30 fps)};
+% Row 1: Main processing pipeline (top)
+\node [input] (input) at (0,5.5) {Raw Video Input\\30 fps, 5 participants\\8 activities};
+\node [process] (pose) at (3,5.5) {YOLOv7 Pose\\Estimation\\17 keypoints\\per frame};
+\node [process] (clean) at (6.2,5.5) {Data Cleaning\\Remove NaN values\\Label standardization};
+\node [process] (features) at (9.4,5.5) {Enhanced Feature Extraction\\18 features};
+\node [process] (smooth) at (12.6,5.5) {Temporal Smoothing\\Savitzky-Golay\\5-frame window};
 
-% Pose estimation
-\node [block, below=of input] (pose) {YOLOv7 Pose\\Estimation\\(17 keypoints)};
+% Row 2: Sequence creation and validation split
+\node [process] (sequence) at (12.6,2) {Sliding windows\\Baseline: 30 frames\\Optimized: 90 frames};
+\node [decision] (split) at (8,2) {LOSO Cross-\\Validation\\5 folds};
 
-% Feature extraction
-\node [block, below=of pose] (features) {Enhanced Feature\\Extraction\\(18 features)};
+% Row 3: Training and testing branches
+\node [process] (train) at (2,2) {Training Set\\4 participants\\Feature scaling\\Class weighting};
+\node [process] (test) at (8,-1.2) {Test Set\\1 participant\\Same scaling\\applied};
 
-% Temporal smoothing
-\node [block, below=of features] (smooth) {Temporal Smoothing\\(5-frame window)};
+% Row 4: Models and processing (bottom level)
+\node [model] (baseline) at (0,-0.5) {Baseline LSTM\\Units: 64\\Window: 30\\LR: 0.001};
+\node [model] (optimized) at (4,-0.5) {Optimized LSTM\\Units: 128\\Window: 90\\LR: 0.0005};
+\node [process] (training) at (2,-3) {Model Training\\Adam optimizer\\Early stopping\\Dropout: 30\%};
+\node [process] (eval) at (8,-3.2) {Model Evaluation};
 
-% Temporal windowing
-\node [block, below=of smooth] (window) {Temporal Windowing\\(90 frames,\\50\% overlap)};
+% Row 5: Final results (bottom)
+\node [result] (results) at (5.0,-5.6) {Final Results\\Statistical analysis};
 
-% Data splitting
-\node [decision, below=of window] (split) {LOSO\\Cross-\\Validation};
+% Main horizontal processing flow
+\draw [arrow] (input) -- (pose);
+\draw [arrow] (pose) -- (clean);
+\draw [arrow] (clean) -- (features);
+\draw [arrow] (features) -- (smooth);
 
-% Training branch
-\node [block, left=of split, xshift=-1.5cm] (train) {Training Set\\(4 participants)};
+% Sequence creation and validation split
+\draw [arrow] (smooth) -- (sequence);
+\draw [arrow] (sequence) -- (split);
 
-% Testing branch  
-\node [block, right=of split, xshift=1.5cm] (test) {Test Set\\(1 participant)};
+% Training and testing split
+\draw [arrow] (split) -- (train);
+\draw [arrow] (split) -- (test);
 
-% LSTM model
-\node [block, below=of train] (lstm) {Enhanced LSTM\\Model\\(Bidirectional)};
+% Model training connections
+\draw [arrow] (train) -- (baseline);
+\draw [arrow] (train) -- (optimized);
+\draw [arrow] (baseline) -- (training);
+\draw [arrow] (optimized) -- (training);
 
-% Training process
-\node [block, below=of lstm] (training) {Model Training\\(Adam optimizer,\\Early stopping)};
+% Evaluation connections
+\draw [arrow] (test) -- (eval);
 
-% Evaluation
-\node [block, below=of test] (eval) {Model Evaluation\\(Accuracy, F1-score,\\Confusion Matrix)};
-
-% Results
-\node [block, below=of training, xshift=2.2cm, yshift=-0.5cm] (results) {Performance\\Results\\(8 Activity Classes)};
-
-% Arrows
-\draw [arrow] (input.south) -- (pose.north);
-\draw [arrow] (pose.south) -- (features.north);
-\draw [arrow] (features.south) -- (smooth.north);
-\draw [arrow] (smooth.south) -- (window.north);
-\draw [arrow] (window.south) -- (split.north);
-\draw [arrow] (split.west) -- (train.east);
-\draw [arrow] (split.east) -- (test.west);
-\draw [arrow] (train.south) -- (lstm.north);
-\draw [arrow] (lstm.south) -- (training.north);
-\draw [arrow] (test.south) -- (eval.north);
-\draw [arrow] (training.south) |- (results.west);
-\draw [arrow] (eval.south) |- (results.east);
+% Final results connections
+\draw [arrow] (training) -- (results);
+\draw [arrow] (eval) -- (results);
 
 \end{tikzpicture}
 }
-\caption{Methodology Flowchart: Enhanced LSTM-based Abnormal Activity Recognition System}
+\caption{Comprehensive Methodology Flowchart: Enhanced LSTM-based Abnormal Activity Recognition System with Detailed Processing Pipeline including Data Cleaning, Feature Extraction, and Model Training Components}
 \label{fig:methodology_flowchart}
 \end{figure}
 
@@ -142,7 +156,7 @@ Figure \ref{fig:methodology_flowchart} presents the overall methodology flowchar
 
 The ISAS 2025 dataset consists of pose keypoint data from 5 participants performing 8 activities: 4 normal behaviors (sitting quietly, using phone, walking, eating snacks) and 4 unusual behaviors (head banging, throwing things, attacking, biting nails). The data was collected in a controlled laboratory environment using YOLOv7 pose estimation, extracting 17 keypoints per frame at 30 fps.
 
-Data preprocessing included removal of frames with missing activity labels, label standardization (merging "Throwing" and "Throwing things" labels), temporal ordering by participant and frame ID, and application of temporal smoothing to reduce noise.
+Data preprocessing involved comprehensive data cleaning and standardization procedures. First, all frames with missing activity labels were systematically removed using pandas dropna functionality to ensure data quality. Critical label standardization was performed to address inconsistencies in the original dataset, specifically merging "Throwing" and "Throwing things" labels into a unified "Throwing things" category to maintain semantic consistency. Temporal ordering was enforced by sorting data by participant and frame\_id to preserve proper chronological sequence for each individual. Additionally, comprehensive keypoint validation was implemented to handle potential NaN values in pose estimation coordinates, ensuring robust feature extraction. The preprocessing pipeline also incorporated temporal smoothing using a 5-frame Savitzky-Golay filter with polynomial order 2 to reduce noise while preserving essential motion characteristics in the pose keypoint trajectories.
 
 The final dataset contains 28,757 labeled frames for baseline evaluation and 15,965 frames for optimized evaluation, distributed across participants as shown in Table \ref{tab:data_distribution}.
 
@@ -167,7 +181,7 @@ The final dataset contains 28,757 labeled frames for baseline evaluation and 15,
 
 \subsection{Enhanced Feature Extraction}
 
-We developed an enhanced feature extraction method that extends the original 14-feature approach to 18 features, incorporating additional spatial and temporal dynamics. The original features (1-14) include hand speeds and accelerations (right/left wrist), foot speeds and accelerations (right/left ankle), shoulder-wrist angles (right/left), and eye displacement patterns (vertical/horizontal). The enhanced features (15-18) comprise head movement (nose displacement), body center displacement (hip midpoint), arm span (wrist-to-wrist distance), and leg span (ankle-to-ankle distance).
+Our feature extraction methodology follows the established ABC paper approach, implementing 14 comprehensive pose-based features from skeleton keypoints. The feature set encompasses four primary categories: motion dynamics including hand speeds and accelerations (right/left wrist velocities and their temporal derivatives), foot speeds and accelerations (right/left ankle velocities and their temporal derivatives); spatial relationships comprising shoulder-wrist angles (right/left limb orientations) and hip-ankle angles (right/left lower body orientations); head orientation calculated using eye position differences to determine facial direction; and body center movement computed as the displacement of the shoulder midpoint between consecutive frames. For enhanced model performance, we extended this to 18 features by incorporating additional spatial descriptors: head movement (nose displacement), body center displacement (hip midpoint movement), arm span (wrist-to-wrist distance), and leg span (ankle-to-ankle distance), providing more comprehensive spatial-temporal characterization of human pose dynamics.
 
 The feature extraction process incorporates temporal smoothing using a 5-frame moving average window to reduce noise while preserving essential motion characteristics.
 
@@ -206,9 +220,9 @@ Key architectural features include bidirectional LSTM layers for improved tempor
 
 \subsection{Training and Evaluation}
 
-The model training employs Leave-One-Subject-Out (LOSO) cross-validation to evaluate generalization across individuals. For each fold, one participant serves as the test set, the remaining four participants form the training set, features are standardized using training set statistics, class weights are computed to handle imbalanced data, and early stopping and learning rate reduction prevent overfitting.
+The model training employs a comprehensive pipeline with Leave-One-Subject-Out (LOSO) cross-validation to evaluate generalization across individuals. The complete training procedure involves sequence creation from pose features using sliding windows, systematic feature standardization using training set statistics to ensure zero mean and unit variance, computation of class weights to address severe data imbalance (unusual behaviors <25% of frames), and implementation of early stopping with learning rate reduction to prevent overfitting while maintaining convergence.
 
-Training hyperparameters include Adam optimizer with learning rate 0.001, sparse categorical crossentropy loss function, batch size of 32, maximum epochs of 30, and early stopping patience of 8 epochs.
+Our experimental design compares two model configurations: a baseline LSTM model with window size=30 frames, overlap rate=50\%, LSTM units=64, learning rate=0.001, batch size=32, and epochs=20; and an optimized LSTM model with enhanced parameters including window size=90 frames, overlap rate=70\%, LSTM units=128, learning rate=0.0005, batch size=16, and epochs=25. Both models utilize Adam optimizer, sparse categorical cross-entropy loss function, and comprehensive data validation procedures to ensure robust training and evaluation.
 
 \section{Results and Analysis}
 
@@ -396,7 +410,7 @@ This section interprets the experimental findings with respect to three core dim
 
 \subsection{Overall Activity-Level Results}
 
-The optimized LSTM raised weighted F1-score and accuracy by 1.3\% and 1.5\%, respectively, relative to the baseline (Table 2). Although incremental in absolute terms, such gains are noteworthy given the severe class imbalance (unusual behaviours constitute <25\% of frames) and the small-sample, leave-one-subject-out (LOSO) evaluation. Prior skeleton-based works on abnormal HAR such as Morais et al. \cite{morais2019learning} and Yan et al.'s ST-GCN \cite{yan2018spatial} report similar magnitudes of improvement when architectural refinements are introduced, suggesting that the observed uplift is both credible and practically meaningful. Importantly, variance across LOSO folds fell by roughly one-third (σ\_Acc: 0.051 → 0.035), indicating that the 90-frame window, bidirectional memory, and aggressive dropout collectively strengthen generalisation to unseen subjects, an essential property for real-world deployment in care homes where per-resident fine-tuning is impractical.
+The optimized LSTM raised weighted F1-score and accuracy by 1.3\% and 1.5\%, respectively, relative to the baseline (Table 2). Although incremental in absolute terms, such gains are noteworthy given the severe class imbalance (unusual behaviours constitute <25\% of frames) and the small-sample, leave-one-subject-out (LOSO) evaluation. Prior skeleton-based works on abnormal HAR such as Morais et al. \cite{morais2019learning} and Yan et al.'s ST-GCN \cite{yan2018spatial} report similar magnitudes of improvement when architectural refinements are introduced, suggesting that the observed uplift is both credible and practically meaningful. Importantly, variance across LOSO folds fell by roughly one-third ($\sigma_{Acc}$: 0.051 $\rightarrow$ 0.035), indicating that the 90-frame window, bidirectional memory, and aggressive dropout collectively strengthen generalisation to unseen subjects, an essential property for real-world deployment in care homes where per-resident fine-tuning is impractical.
 
 The three-fold increase in window length, identified via grid search, corroborates the window-size sensitivity documented in EEG-based LSTM studies and in video anomaly detection using sliding-window CNN-RNN hybrids. Longer windows evidently capture the preparatory and follow-through phases typical of violent or self-injurious acts, providing richer temporal context without materially degrading convergence speed.
 

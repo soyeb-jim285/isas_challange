@@ -2,16 +2,13 @@
 
 \bibitem{ashok2023challenges}
 Kumar Ashok, Priya Singh, and Raj Kumar.
-\newblock Healthcare challenges and improvements in people with intellectual
-  disabilities: A comprehensive review.
-\newblock {\em Journal of Intellectual Disability Research}, 67(4):312--328,
-  2023.
+\newblock Healthcare challenges and improvements in people with intellectual disabilities: A comprehensive review.
+\newblock {\em Journal of Intellectual Disability Research}, 67(4):312--328, 2023.
 
 \bibitem{buntinx2010models}
 Wil~HE Buntinx and Robert~L Schalock.
 \newblock Models of disability, quality of life, and individualized supports.
-\newblock {\em Journal of Intellectual Disability Research}, 54(5):441--453,
-  2010.
+\newblock {\em Journal of Intellectual Disability Research}, 54(5):441--453, 2010.
 
 \bibitem{emerson2014health}
 Eric Emerson and Chris Hatton.
@@ -19,25 +16,19 @@ Eric Emerson and Chris Hatton.
 \newblock {\em Cambridge University Press}, pages 1--312, 2014.
 
 \bibitem{ke2013review}
-Shian-Ru Ke, Hoang Le~Uyen Thuc, Yong-Jin Lee, Jenq-Neng Hwang, Jang-Hee Yoo,
-  and Kyoung-Ho Choi.
+Shian-Ru Ke, Hoang Le~Uyen Thuc, Yong-Jin Lee, Jenq-Neng Hwang, Jang-Hee Yoo, and Kyoung-Ho Choi.
 \newblock A review on video-based human activity recognition.
 \newblock {\em Computers}, 2(2):88--131, 2013.
 
 \bibitem{inoue2019integrating}
 Sozo Inoue, Naoki Yamashita, and Takeshi Yamazaki.
-\newblock Integrating activity recognition and nursing care records: The
-  system, deployment, and a verification study.
-\newblock {\em Proceedings of the ACM on Interactive, Mobile, Wearable and
-  Ubiquitous Technologies}, 3(3):1--24, 2019.
+\newblock Integrating activity recognition and nursing care records: The system, deployment, and a verification study.
+\newblock {\em Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies}, 3(3):1--24, 2019.
 
 \bibitem{morais2019learning}
-Romero Morais, Vuong Le, Truyen Tran, Budhaditya Saha, Moussa Mansour, and
-  Svetha Venkatesh.
-\newblock Learning regularity in skeleton trajectories for anomaly detection in
-  videos.
-\newblock In {\em IEEE/CVF Conference on Computer Vision and Pattern
-  Recognition (CVPR)}, pages 11988--11996, 2019.
+Romero Morais, Vuong Le, Truyen Tran, Budhaditya Saha, Moussa Mansour, and Svetha Venkatesh.
+\newblock Learning regularity in skeleton trajectories for anomaly detection in videos.
+\newblock In {\em IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 11988--11996, 2019.
 
 \bibitem{wang2019deep}
 Jindong Wang, Yiqiang Chen, Shuji Hao, Xiaohui Peng, and Lisha Hu.
@@ -46,73 +37,58 @@ Jindong Wang, Yiqiang Chen, Shuji Hao, Xiaohui Peng, and Lisha Hu.
 
 \bibitem{ordonez2016deep}
 Francisco~Javier Ord{\'o}{\~n}ez and Daniel Roggen.
-\newblock Deep convolutional and lstm recurrent neural networks for multimodal
-  wearable activity recognition.
+\newblock Deep convolutional and lstm recurrent neural networks for multimodal wearable activity recognition.
 \newblock {\em Sensors}, 16(1):115, 2016.
 
 \bibitem{shahroudy2016ntu}
 Amir Shahroudy, Jun Liu, Tian-Tsong Ng, and Gang Wang.
 \newblock Ntu rgb+d: A large scale dataset for 3d human activity recognition.
-\newblock In {\em Proceedings of the IEEE conference on computer vision and
-  pattern recognition}, pages 1010--1019, 2016.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and pattern recognition}, pages 1010--1019, 2016.
 
 \bibitem{bulling2014tutorial}
 Andreas Bulling, Ulf Blanke, and Bernt Schiele.
-\newblock A tutorial on human activity recognition using body-worn inertial
-  sensors.
+\newblock A tutorial on human activity recognition using body-worn inertial sensors.
 \newblock {\em ACM Computing Surveys}, 46(3):1--33, 2014.
 
 \bibitem{liu2018skeleton}
 Jun Liu, Amir Shahroudy, Dong Xu, and Gang Wang.
-\newblock Skeleton-based human action recognition with global context-aware
-  attention lstm networks.
+\newblock Skeleton-based human action recognition with global context-aware attention lstm networks.
 \newblock {\em IEEE Transactions on Image Processing}, 27(4):1586--1599, 2018.
 
 \bibitem{ramirez2022human}
-Hugo Ramirez, Sergio~A Velastin, Ignacio Moya, Arthur Filippidis, Evaggelos
-  Spyrou, Stavros Voliotis, and Dimitrios Kosmopoulos.
+Hugo Ramirez, Sergio~A Velastin, Ignacio Moya, Arthur Filippidis, Evaggelos Spyrou, Stavros Voliotis, and Dimitrios Kosmopoulos.
 \newblock Human activity recognition using deep learning techniques.
 \newblock {\em Sensors}, 22(15):5690, 2022.
 
 \bibitem{yan2018spatial}
 Sijie Yan, Yuanjun Xiong, and Dahua Lin.
-\newblock Spatial temporal graph convolutional networks for skeleton-based
-  action recognition.
-\newblock In {\em Proceedings of the 32nd AAAI Conference on Artificial
-  Intelligence}, pages 7444--7452, 2018.
+\newblock Spatial temporal graph convolutional networks for skeleton-based action recognition.
+\newblock In {\em Proceedings of the 32nd AAAI Conference on Artificial Intelligence}, pages 7444--7452, 2018.
 
 \bibitem{li2017skeleton}
 Chao Li, Qiaoyong Zhong, Di~Xie, and Shiliang Pu.
-\newblock Skeleton-based action recognition using spatio-temporal lstm network
-  with trust gates.
-\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  40(12):3007--3021, 2017.
+\newblock Skeleton-based action recognition using spatio-temporal lstm network with trust gates.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 40(12):3007--3021, 2017.
 
 \bibitem{lee2017ensemble}
 Inwoong Lee, Doyoung Kim, Seungju Kang, and Sanghoon Lee.
-\newblock Ensemble deep learning for skeleton-based action recognition using
-  temporal sliding lstm networks.
-\newblock In {\em Proceedings of the IEEE international conference on computer
-  vision}, pages 1012--1020, 2017.
+\newblock Ensemble deep learning for skeleton-based action recognition using temporal sliding lstm networks.
+\newblock In {\em Proceedings of the IEEE international conference on computer vision}, pages 1012--1020, 2017.
 
 \bibitem{li2019temporal}
 Yann Li, Tao Wei, Xiangyu Jin, Jianqiang Wang, and Changsheng Xu.
 \newblock Temporal attention-gated model for robust sequence classification.
-\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  43(2):770--783, 2019.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 43(2):770--783, 2019.
 
 \bibitem{plizzari2020skeleton}
 Chiara Plizzari, Marco Cannici, and Matteo Matteucci.
-\newblock Skeleton-based action recognition via spatial and temporal
-  transformer networks.
+\newblock Skeleton-based action recognition via spatial and temporal transformer networks.
 \newblock In {\em Computer Vision--ACCV 2020}, pages 694--710, 2020.
 
 \bibitem{hammerla2015let}
 Nils~Y Hammerla and Thomas Ploetz.
-\newblock On preserving statistical characteristics of accelerometry data using
-  their empirical cumulative distribution.
-\newblock {\em Proceedings of the 2013 international symposium on wearable
-  computers}, pages 65--68, 2015.
+\newblock On preserving statistical characteristics of accelerometry data using their empirical cumulative distribution.
+\newblock {\em Proceedings of the 2013 international symposium on wearable computers}, pages 65--68, 2015.
 
 \bibitem{braganca2022validation}
 Hugo Bragan{\c{c}}a, Juan~G Colonna, Wesllen~S Lima, and Eduardo Souto.
@@ -121,21 +97,17 @@ Hugo Bragan{\c{c}}a, Juan~G Colonna, Wesllen~S Lima, and Eduardo Souto.
 
 \bibitem{gholamiangonabadi2020deep}
 Danial Gholamiangonabadi, Nikita Kiselov, and Katarina Grolinger.
-\newblock Deep neural networks for human activity recognition with wearable
-  sensors: leave-one-subject-out cross-validation for model selection.
+\newblock Deep neural networks for human activity recognition with wearable sensors: leave-one-subject-out cross-validation for model selection.
 \newblock {\em IEEE Access}, 8:133982--133994, 2020.
 
 \bibitem{kwolek2014human}
 Bogdan Kwolek and Michal Kepski.
-\newblock Human fall detection on embedded platform using depth maps and
-  wireless accelerometer.
-\newblock {\em Computer Methods and Programs in Biomedicine}, 117(3):489--501,
-  2014.
+\newblock Human fall detection on embedded platform using depth maps and wireless accelerometer.
+\newblock {\em Computer Methods and Programs in Biomedicine}, 117(3):489--501, 2014.
 
 \bibitem{chen2021learning}
 Yue Chen, Yannis Kalantidis, Jiajun Li, Shuicheng Yan, and Jiashi Feng.
-\newblock Learning motion representations for real-time spatio-temporal action
-  localization.
+\newblock Learning motion representations for real-time spatio-temporal action localization.
 \newblock {\em Pattern Recognition}, 103:107312, 2021.
 
 \end{thebibliography}
