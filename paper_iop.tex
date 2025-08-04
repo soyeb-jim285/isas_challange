@@ -22,13 +22,15 @@
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{shapes,arrows,positioning,fit,backgrounds,calc,matrix,chains,scopes}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
-% Define custom colors for professional research paper appearance
-\definecolor{inputblue}{RGB}{41, 98, 255}
-\definecolor{processgreen}{RGB}{0, 150, 136}
-\definecolor{decisionorange}{RGB}{255, 152, 0}
-\definecolor{modelpurple}{RGB}{103, 58, 183}
-\definecolor{resultred}{RGB}{244, 67, 54}
-\definecolor{arrowgray}{RGB}{66, 66, 66}
+% Revised color palette for formal publication (Tableau Classic 10)
+\definecolor{inputblue}{RGB}{31, 119, 180}   % primary blue
+\definecolor{processgreen}{RGB}{44, 160, 44}  % supportive green
+\definecolor{decisionorange}{RGB}{255, 127, 14} % accent orange
+\definecolor{modelpurple}{RGB}{148, 103, 189}  % accent purple
+\definecolor{resultred}{RGB}{214, 39, 40}     % alert red
+\definecolor{arrowgray}{RGB}{77, 77, 77}      % neutral gray
+\definecolor{baselineblue}{RGB}{144, 213, 255} % Baseline (Okabe-Ito blue)
+\definecolor{optimizedorange}{RGB}{144, 238, 144} % Optimized (Okabe-Ito orange)
 \begin{document}
 
 \title{Enhanced LSTM-Based Temporal Parameter Optimization for Abnormal Activity Recognition in Developmental Disability Support}
@@ -332,14 +334,16 @@ Figure \ref{fig:confusion_matrices} presents the confusion matrices for both bas
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.7\textwidth}
     \centering
     \includegraphics[width=\textwidth]{results/metrics/baseline/confusion_matrix.png}
     \caption{Baseline LSTM Model}
     \label{fig:baseline_confusion}
 \end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
+
+\vspace{0.5cm}
+
+\begin{subfigure}{0.7\textwidth}
     \centering
     \includegraphics[width=\textwidth]{results/metrics/optimized/confusion_matrix.png}
     \caption{Optimized LSTM Model}
@@ -351,55 +355,87 @@ Figure \ref{fig:confusion_matrices} presents the confusion matrices for both bas
 
 The confusion matrices reveal several key insights: "Walking" is consistently well-recognized in both models due to distinctive motion patterns, sedentary activities including "Using phone," "Sitting quietly," and "Eating snacks" show frequent misclassification due to similar pose characteristics, and unusual activities generally benefit from optimization with improved separation from normal activities.
 
-\subsection{Class-wise Performance Analysis}
+\subsection{Individual Participant Performance Analysis}
 
-Figure \ref{fig:class_performance} illustrates the per-class performance improvements achieved through optimization.
-
-\begin{figure}[H]
-\centering
-\begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{results/metrics/baseline/class_performance.png}
-    \caption{Baseline Model Performance}
-    \label{fig:baseline_class}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{results/metrics/optimized/class_performance.png}
-    \caption{Optimized Model Performance}
-    \label{fig:optimized_class}
-\end{subfigure}
-\caption{Per-Class Performance Analysis}
-\label{fig:class_performance}
-\end{figure}
-
-The class performance analysis demonstrates enhanced unusual activity detection with improvements in "Throwing things" and "Head banging" recognition, maintained normal activity performance with stable recognition of daily activities like "Walking", and balanced precision and recall where optimization improves both metrics across most classes.
-
-\subsection{Participant-wise Performance Variability}
-
-Figure \ref{fig:participant_performance} shows the performance variation across different participants, highlighting the model's generalization capabilities.
+Figures \ref{fig:participant_accuracy} and \ref{fig:participant_f1} present comprehensive comparisons of individual participant performance between baseline and optimized models, illustrating the heterogeneous impact of optimization across different subjects.
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{results/metrics/baseline/participant_performance.png}
-    \caption{Baseline Model - Participant Variability}
-    \label{fig:baseline_participants}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{results/metrics/optimized/participant_performance.png}
-    \caption{Optimized Model - Participant Variability}
-    \label{fig:optimized_participants}
-\end{subfigure}
-\caption{Participant Performance Variability Analysis}
-\label{fig:participant_performance}
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={Participants},
+    ylabel={Accuracy},
+    title={Per-Participant Accuracy Comparison},
+    legend pos=north west,
+    legend style={fill=white, fill opacity=0.9, draw opacity=1, rounded corners=2pt},
+    grid=major,
+    grid style={line width=.1pt, draw=gray!20},
+    xtick={1,2,3,4,5},
+    xticklabels={P1,P2,P3,P4,P5},
+    ymin=0.45,
+    ymax=0.7,
+    bar width=15pt,
+    ybar=4pt,
+    nodes near coords,
+    nodes near coords style={font=\tiny, above},
+    every node near coord/.append style={anchor=south},
+]
+\addplot[ybar, fill=baselineblue!70, draw=baselineblue, line width=0.8pt, area legend] coordinates {
+    (1,0.5112) (2,0.5959) (3,0.5881) (4,0.5782) (5,0.6722)
+};
+\addplot[ybar, fill=optimizedorange!70, draw=optimizedorange, line width=0.8pt, area legend] coordinates {
+    (1,0.5786) (2,0.5622) (3,0.5874) (4,0.5976) (5,0.6628)
+};
+\legend{Baseline, Optimized}
+\end{axis}
+\end{tikzpicture}
+\caption{Per-Participant Accuracy Comparison: Baseline vs Optimized LSTM models across all five participants}
+\label{fig:participant_accuracy}
 \end{figure}
 
-The participant analysis reveals reduced variance with more consistent performance across individuals, individual adaptation where some participants benefit more from optimization due to unique movement patterns, and generalization capability demonstrated through improved LOSO cross-validation showing better model robustness.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={Participants},
+    ylabel={Weighted F1-Score},
+    title={Per-Participant F1-Score Comparison},
+    legend pos=north west,
+    legend style={fill=white, fill opacity=0.9, draw opacity=1, rounded corners=2pt},
+    grid=major,
+    grid style={line width=.1pt, draw=gray!20},
+    xtick={1,2,3,4,5},
+    xticklabels={P1,P2,P3,P4,P5},
+    ymin=0.45,
+    ymax=0.65,
+    bar width=15pt,
+    ybar=4pt,
+    nodes near coords,
+    nodes near coords style={font=\tiny, above},
+    every node near coord/.append style={anchor=south},
+]
+\addplot[ybar, fill=baselineblue!70, draw=baselineblue, line width=0.8pt, area legend] coordinates {
+    (1,0.4910) (2,0.5211) (3,0.5804) (4,0.5680) (5,0.6299)
+};
+\addplot[ybar, fill=optimizedorange!70, draw=optimizedorange, line width=0.8pt, area legend] coordinates {
+    (1,0.5473) (2,0.4975) (3,0.5877) (4,0.5893) (5,0.5853)
+};
+\legend{Baseline, Optimized}
+\end{axis}
+\end{tikzpicture}
+\caption{Per-Participant F1-Score Comparison: Baseline vs Optimized LSTM models across all five participants}
+\label{fig:participant_f1}
+\end{figure}
+
+The individual participant analysis reveals significant inter-subject variability in optimization benefits. Participant 1 demonstrates the most substantial improvement, with accuracy increasing from 51.1\% to 57.9\% (+6.7 percentage points) and F1-score rising from 49.1\% to 54.7\% (+5.6 percentage points), suggesting this individual's movement patterns particularly benefit from the extended 90-frame temporal window. Participant 4 also shows consistent improvements with accuracy rising from 57.8\% to 59.8\% (+1.9 percentage points) and F1-score improving from 56.8\% to 58.9\% (+2.1 percentage points).
+
+Conversely, some participants exhibit decreased performance with optimization. Participant 2 shows accuracy dropping from 59.6\% to 56.2\% (-3.4 percentage points) and F1-score declining from 52.1\% to 49.8\% (-2.4 percentage points). Most notably, Participant 5 demonstrates the largest F1-score decrease from 63.0\% to 58.5\% (-4.5 percentage points), despite maintaining relatively high overall accuracy. This suggests that longer temporal contexts may introduce noise for certain movement styles or body types.
+
+The optimization process significantly improves model consistency across participants, with accuracy standard deviation reducing from 5.13\% to 3.45\% and F1-score standard deviation decreasing from 4.82\% to 3.56\%. This enhanced consistency indicates better generalization capabilities, which is crucial for real-world deployment where the system must perform reliably across diverse individuals with varying movement characteristics and developmental disability conditions.
 
 \section{Discussion}
 

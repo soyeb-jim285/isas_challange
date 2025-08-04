@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex paper_iop"] 1754266655.90937 "paper_iop.aux" "paper_iop.bbl" "paper_iop" 1754266660.74451 0
+["bibtex paper_iop"] 1754269417.79045 "paper_iop.aux" "paper_iop.bbl" "paper_iop" 1754269536.91945 0
   "./references_clean.bib" 1754249705.8658 9978 b1c0b90a0a85b4b4f8b71b65bc302ff2 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "paper_iop.aux" 1754266660.49155 9208 41c5530f3abc9c611afda96ccbf57066 "pdflatex"
+  "paper_iop.aux" 1754269536.71741 8518 8c4a4792c1eb68690a997fb79cf7bdeb "pdflatex"
   (generated)
   "paper_iop.bbl"
   "paper_iop.blg"
   (rewritten before read)
-["pdflatex"] 1754266655.98157 "/stuff/Study/projects/iasa_challenges_2025/paper_iop.tex" "paper_iop.pdf" "paper_iop" 1754266660.74474 0
-  "/stuff/Study/projects/iasa_challenges_2025/paper_iop.tex" 1754266652.47756 39299 41faba3e953d3119bb1eb26af47be2e7 ""
+["pdflatex"] 1754269534.73554 "/stuff/Study/projects/iasa_challenges_2025/paper_iop.tex" "paper_iop.pdf" "paper_iop" 1754269536.91967 0
+  "/stuff/Study/projects/iasa_challenges_2025/paper_iop.tex" 1754269534.45369 41565 ea062ab19aa3ca7a15e191ffef86de6d ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1742685315 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1742685315 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -48,8 +48,10 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1742685315 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1742685315 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1742685315 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1742685315 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1742685315 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1742685315 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1742685315 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1742685315 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1742685315 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1742685315 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -260,16 +262,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1742836087 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1742836064 2008245 46262347d810573c90eb8439853fbf1e ""
   "iopconfser.cls" 1754251970.21436 3451 7ef752cd1f044fb0ceb091415a7185bf ""
-  "paper_iop.aux" 1754266660.49155 9208 41c5530f3abc9c611afda96ccbf57066 "pdflatex"
-  "paper_iop.bbl" 1754266655.97493 5812 e0f221b0d0a77ab879f78c0b3f6ed516 "bibtex paper_iop"
-  "paper_iop.out" 1754266660.49287 4157 21bd180303ddb6b88762b60896e4a532 "pdflatex"
-  "paper_iop.tex" 1754266652.47756 39299 41faba3e953d3119bb1eb26af47be2e7 ""
-  "results/metrics/baseline/class_performance.png" 1754165668.62691 256603 359385574887480a62c4a70a3f44b581 ""
+  "paper_iop.aux" 1754269536.71741 8518 8c4a4792c1eb68690a997fb79cf7bdeb "pdflatex"
+  "paper_iop.bbl" 1754269417.84509 5812 e0f221b0d0a77ab879f78c0b3f6ed516 "bibtex paper_iop"
+  "paper_iop.out" 1754269536.71804 3956 13d51c600abb2968a9a4afdf13cd914b "pdflatex"
+  "paper_iop.tex" 1754269534.45369 41565 ea062ab19aa3ca7a15e191ffef86de6d ""
   "results/metrics/baseline/confusion_matrix.png" 1754165665.26388 347416 6360ac044b9caa6917f04a8097b33eb2 ""
-  "results/metrics/baseline/participant_performance.png" 1754165665.93189 131776 1debf5eb073dc0e650f5a3322ff84b32 ""
-  "results/metrics/optimized/class_performance.png" 1754165672.67295 256895 7f8abb48e1cfce06e5d518277211c74b ""
   "results/metrics/optimized/confusion_matrix.png" 1754165669.36492 340361 ab65067d62e8ae4a7cff1328756cf2ff ""
-  "results/metrics/optimized/participant_performance.png" 1754165670.02092 132791 d4a5fedde5e0b8108b5d6f6d3f052cf5 ""
   (generated)
   "paper_iop.aux"
   "paper_iop.log"
